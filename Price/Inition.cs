@@ -23,11 +23,21 @@ namespace Price
 
         private void Next_Click(object sender, EventArgs e)
         {
+            Main main = new Main();
             Name = tbName.Text;
             Store = tbStore.Text;
             Cost = Convert.ToInt32(tbCost.Text);
+            main.Add_Price(Name, Store, Cost, Init_Number);
             Init_Number++;
-            
-        }
+            this.Text = $"Инициализация {Init_Number} из 8";
+            tbName.Text = "";
+            tbStore.Text = "";
+            tbCost.Text = "";
+            if (Init_Number == 2)
+            {
+                MessageBox.Show("Все элементы заполнены!");
+                this.Close();
+            }
+    }
     }
 }

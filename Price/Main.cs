@@ -22,11 +22,12 @@ namespace Price
             Init();
         }
 
+
         struct Price
         {
-            string Name;
-            string Store;
-            int Cost;
+            public string Name;
+            public string Store;
+            public int Cost;
             public Price(string name, string store, int cost)
             {
                 Name = name;
@@ -35,17 +36,43 @@ namespace Price
             }
 
         }
+
+        Inition inition = new Inition();
+        Price[] price_limit = new Price[2];
+
+        public void Add_Price(string name, string store, int cost, int i)
+        {
+            Price price = new Price(name, store, cost);
+            price_limit[i] = price;
+            MessageBox.Show(price_limit[i].Store);
+        }
+
         private void Init()
         {
-            Price[] prive_limit = new Price[8];
-            Inition inition = new Inition();
-            while (inition.Init_Number != 9) // Баг
+            inition.Show();
+            this.SendToBack();   
+        }
+
+        private void bSearch_Click(object sender, EventArgs e)
+        {
+            string store = tbSearch.Text;
+            bool searched = false;
+            foreach (Price price in price_limit)
             {
-                Price price = new Price(inition.Name, inition.Store, inition.Cost);
-                inition.Text = $"Инициализация {inition.Init_Number} из 8";
-                inition.Show();
-                prive_limit[inition.Init_Number] = price;
+                MessageBox.Show(price.Store);
+                //lbItems.Items.Add(price.Store);
+                if (price.Store.ToLower() == store.ToLower())
+                {
+                    if (!searched) searched = true;
+                    lbItems.Items.Add($"{price.Name}    {price.Cost}р");
+                }
             }
+            if (!searched) { MessageBox.Show("Такого магазина нет"); }
+        }
+
+        private void tbSearch_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbSearch.Text = "";
         }
     }
 }

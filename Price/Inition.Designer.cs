@@ -53,7 +53,7 @@
             // 
             // tbStore
             // 
-            this.tbStore.Location = new System.Drawing.Point(103, 167);
+            this.tbStore.Location = new System.Drawing.Point(103, 182);
             this.tbStore.Name = "tbStore";
             this.tbStore.Size = new System.Drawing.Size(183, 20);
             this.tbStore.TabIndex = 2;
@@ -108,7 +108,7 @@
             this.Controls.Add(this.tbCost);
             this.Controls.Add(this.tbName);
             this.Name = "Inition";
-            this.Text = "Инициализация";
+            this.Text = "Инициализация 0 из 8";
             this.ResumeLayout(false);
             this.PerformLayout();
 
