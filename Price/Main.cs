@@ -38,13 +38,13 @@ namespace Price
         }
 
         Inition inition = new Inition();
-        Price[] price_limit = new Price[2];
+        List<Price> price_limit = new List<Price>();
 
         public void Add_Price(string name, string store, int cost, int i)
         {
             Price price = new Price(name, store, cost);
-            price_limit[i] = price;
-            MessageBox.Show(price_limit[i].Store);
+            price_limit.Add(price);
+            MessageBox.Show($"{price_limit[0].Store}, {price_limit[0].Name})");
         }
 
         private void Init()
